@@ -65,18 +65,7 @@ class _ExperienceState extends State<Experience> {
               fontWeight: FontWeight.bold,
             ),
           ),
-
           const SizedBox(height: 16),
-          Text(
-            "$startdate - $enddate",
-            style: GoogleFonts.lato(
-              color: Colors.white,
-              fontSize: 18,
-            ),
-          ),
-
-          const SizedBox(height: 16,),
-
           Text(
             role,
             style: GoogleFonts.lato(
@@ -85,10 +74,17 @@ class _ExperienceState extends State<Experience> {
               fontWeight: FontWeight.w300,
             ),
           ),
-          
+          const SizedBox(height: 8),
+          Text(
+            "$startdate - $enddate",
+            style: GoogleFonts.lato(
+              color: Colors.white,
+              fontSize: 18,
+            ),
+          ),
           const SizedBox(height: 16),
           Text(
-            'Relevant Coursework',
+            'Key Responsibilities',
             style: GoogleFonts.lato(
               color: Colors.white,
               fontSize: 16,
@@ -107,6 +103,8 @@ class _ExperienceState extends State<Experience> {
 
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 800;
+
     return Scaffold(
       backgroundColor: const Color(0xFF212529), // Page background color
       body: Column(
@@ -118,7 +116,10 @@ class _ExperienceState extends State<Experience> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 200, vertical: 10),
+                padding: EdgeInsets.symmetric(
+                  horizontal: isWideScreen ? 100 : 16,
+                  vertical: 10,
+                ),
                 child: Column(
                   children: [
                     experienceCard(
@@ -154,11 +155,10 @@ class _ExperienceState extends State<Experience> {
                       "March 2024",
                       [
                         'Collaborated with Dr. Sandhya on developing a Smart Parking Lot System for VNRVJIET using Deep Learning algorithms, leading to the department’s best societal impact project. ',
-                        ' Contributed to a pioneering project on Cyberbullying Detection using BERT model under Dr. Sitanath Biswas.',
+                        'Contributed to a pioneering project on Cyberbullying Detection using BERT model under Dr. Sitanath Biswas.',
                         'Worked under Mr. Kishan Babu to conduct a comparative study of CNN models for malaria parasite detection, resulting in the acceptance of our research at the IEEE GCITC conference in Bangalore, and it got published in IEEE Xplore. '
                       ],
                     ),
-
                     const SizedBox(height: 20),
                     experienceCard(
                       "Vistan NextGen",

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MyTextButton extends StatelessWidget {
@@ -17,6 +16,9 @@ class MyTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double fontSize = screenWidth > 600 ? 20 : 16; // Adjust font size based on screen width
+
     return TextButton(
       onPressed: () {
         onTap(routeName);
@@ -25,14 +27,12 @@ class MyTextButton extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          fontSize: 20, 
+          fontSize: fontSize, 
           color: isActive ? Colors.green : Colors.white,
           fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
           decoration: isActive ? TextDecoration.underline : TextDecoration.none,
-          
         ),
       ),
-      
     );
   }
 }

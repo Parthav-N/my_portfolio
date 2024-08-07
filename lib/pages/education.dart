@@ -101,6 +101,8 @@ class _EducationState extends State<Education> {
 
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 800;
+
     return Scaffold(
       backgroundColor: const Color(0xFF212529), // Page background color
       body: Column(
@@ -112,7 +114,10 @@ class _EducationState extends State<Education> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 200, vertical: 10),
+                padding: EdgeInsets.symmetric(
+                  horizontal: isWideScreen ? 100 : 16,
+                  vertical: 10,
+                ),
                 child: Column(
                   children: [
                     educationCard(

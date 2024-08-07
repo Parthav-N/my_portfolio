@@ -78,6 +78,8 @@ class _AboutState extends State<About> {
 
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 800;
+
     return Scaffold(
       backgroundColor: const Color(0xFF212529), // Page background color
       body: Column(
@@ -87,7 +89,10 @@ class _AboutState extends State<About> {
             onTap: _handleNavTap,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 200, vertical: 10),
+            padding: EdgeInsets.symmetric(
+              horizontal: isWideScreen ? 100 : 16,
+              vertical: 10,
+            ),
             child: SafeArea(
               child: Column(
                 children: [
@@ -100,11 +105,12 @@ class _AboutState extends State<About> {
                           child: Image.asset(
                             "assets/images/pp.jpeg",
                             fit: BoxFit.cover,
-                            width: 100,
+                            width: double.infinity,
                             height: 400,
                           ),
                         ),
                       ),
+                      const SizedBox(width: 20),
                       Expanded(
                         flex: 7,
                         child: SingleChildScrollView(
